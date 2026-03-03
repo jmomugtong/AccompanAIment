@@ -1,0 +1,93 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+*.egg
+dist/
+build/
+.eggs/
+*.whl
+.mypy_cache/
+.pytest_cache/
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+
+# Virtual environments
+venv/
+.venv/
+env/
+.env
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Frontend build
+frontend/dist/
+frontend/build/
+.next/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Audio uploads and generated files
+uploads/
+generated/
+*.wav
+*.mp3
+*.m4a
+*.flac
+*.mid
+*.midi
+!backend/tests/fixtures/*.wav
+!backend/tests/fixtures/*.mid
+
+# Soundfonts (large binary files, download separately)
+backend/assets/soundfonts/*.sf2
+
+# ML models (auto-downloaded)
+models/crepe/
+models/ollama/
+
+# Docker volumes
+postgres_data/
+redis_data/
+ollama_data/
+
+# Logs
+*.log
+logs/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# Docs (temporary)
+docs/
