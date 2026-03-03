@@ -2,10 +2,18 @@
 
 import pytest
 import pytest_asyncio
+from sqlalchemy import event, text
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.orm import sessionmaker
 
 from src.db.models import Base
+
+
+def _enable_sqlite_fk(dbapi_conn, connection_record):
+    """Enable foreign key enforcement in SQLite."""
+    cursor = dbapi_conn.cursor()
+    cursor.execute("PRAGMA foreign_keys=ON")
+    cursor.close()
 
 
 @pytest_asyncio.fixture
@@ -15,6 +23,7 @@ async def async_engine():
         "sqlite+aiosqlite:///:memory:",
         echo=False,
     )
+    event.listen(engine.sync_engine, "connect", _enable_sqlite_fk)
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
     yield engine

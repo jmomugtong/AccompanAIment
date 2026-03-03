@@ -444,3 +444,125 @@ class TestCRUDOperations:
             select(Generation).where(Generation.generation_id == "g4")
         )
         assert result.scalar_one_or_none() is None
+
+
+class TestForeignKeyRelationships:
+    """Test foreign key constraints and ORM relationships."""
+
+    @pytest.mark.asyncio
+    async def test_song_belongs_to_user_via_relationship(self, async_session):
+        user = User(user_id="fk1", email="fk1@example.com")
+        song = Song(
+            song_id="fks1", user_id="fk1", filename="a.wav", original_filename="a.mp3"
+        )
+        async_session.add_all([user, song])
+        await async_session.commit()
+
+        from sqlalchemy import select
+        from sqlalchemy.orm import selectinload
+
+        result = await async_session.execute(
+            select(User).where(User.user_id == "fk1").options(selectinload(User.songs))
+        )
+        fetched = result.scalar_one()
+        assert len(fetched.songs) == 1
+        assert fetched.songs[0].song_id == "fks1"
+
+    @pytest.mark.asyncio
+    async def test_melody_belongs_to_song(self, async_session):
+        user = User(user_id="fk2", email="fk2@example.com")
+        song = Song(
+            song_id="fks2", user_id="fk2", filename="b.wav", original_filename="b.mp3"
+        )
+        melody = Melody(melody_id="fkm1", song_id="fks2", duration_seconds=3.0)
+        async_session.add_all([user, song, melody])
+        await async_session.commit()
+
+        from sqlalchemy import select
+        from sqlalchemy.orm import selectinload
+
+        result = await async_session.execute(
+            select(Song).where(Song.song_id == "fks2").options(selectinload(Song.melodies))
+        )
+        fetched = result.scalar_one()
+        assert len(fetched.melodies) == 1
+
+    @pytest.mark.asyncio
+    async def test_generation_belongs_to_song(self, async_session):
+        user = User(user_id="fk3", email="fk3@example.com")
+        song = Song(
+            song_id="fks3", user_id="fk3", filename="c.wav", original_filename="c.mp3"
+        )
+        gen = Generation(generation_id="fkg1", song_id="fks3", style="jazz")
+        async_session.add_all([user, song, gen])
+        await async_session.commit()
+
+        from sqlalchemy import select
+        from sqlalchemy.orm import selectinload
+
+        result = await async_session.execute(
+            select(Song)
+            .where(Song.song_id == "fks3")
+            .options(selectinload(Song.generations))
+        )
+        fetched = result.scalar_one()
+        assert len(fetched.generations) == 1
+
+    @pytest.mark.asyncio
+    async def test_feedback_belongs_to_generation_and_user(self, async_session):
+        user = User(user_id="fk4", email="fk4@example.com")
+        song = Song(
+            song_id="fks4", user_id="fk4", filename="d.wav", original_filename="d.mp3"
+        )
+        gen = Generation(generation_id="fkg2", song_id="fks4", style="pop")
+        fb = UserFeedback(
+            feedback_id="fkf1", generation_id="fkg2", user_id="fk4", rating=4
+        )
+        async_session.add_all([user, song, gen, fb])
+        await async_session.commit()
+
+        from sqlalchemy import select
+        from sqlalchemy.orm import selectinload
+
+        result = await async_session.execute(
+            select(Generation)
+            .where(Generation.generation_id == "fkg2")
+            .options(selectinload(Generation.feedbacks))
+        )
+        fetched = result.scalar_one()
+        assert len(fetched.feedbacks) == 1
+        assert fetched.feedbacks[0].user_id == "fk4"
+
+    @pytest.mark.asyncio
+    async def test_song_fk_constraint_requires_valid_user(self, async_session):
+        """Inserting a song with a nonexistent user_id raises IntegrityError."""
+        from sqlalchemy.exc import IntegrityError
+
+        song = Song(
+            song_id="bad1",
+            user_id="nonexistent",
+            filename="x.wav",
+            original_filename="x.mp3",
+        )
+        async_session.add(song)
+        with pytest.raises(IntegrityError):
+            await async_session.commit()
+
+    @pytest.mark.asyncio
+    async def test_feedback_fk_constraint_requires_valid_generation(self, async_session):
+        """Inserting feedback with a nonexistent generation_id raises IntegrityError."""
+        from sqlalchemy.exc import IntegrityError
+
+        user = User(user_id="fk5", email="fk5@example.com")
+        async_session.add(user)
+        await async_session.commit()
+
+        fb = UserFeedback(
+            feedback_id="badfb",
+            generation_id="nonexistent",
+            user_id="fk5",
+            rating=3,
+        )
+        async_session.add(fb)
+        with pytest.raises(IntegrityError):
+            await async_session.commit()
