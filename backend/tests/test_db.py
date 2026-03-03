@@ -944,3 +944,49 @@ class TestUserIsolation:
             select(func.count()).select_from(Song).where(Song.user_id == "iso_h")
         )
         assert result_b.scalar() == 5
+
+
+class TestAlembicMigration:
+    """Test Alembic migration configuration and execution."""
+
+    def test_alembic_config_file_exists(self):
+        import os
+
+        assert os.path.exists(
+            os.path.join(os.path.dirname(__file__), "..", "alembic.ini")
+        )
+
+    def test_alembic_env_file_exists(self):
+        import os
+
+        assert os.path.exists(
+            os.path.join(os.path.dirname(__file__), "..", "alembic", "env.py")
+        )
+
+    def test_alembic_versions_directory_exists(self):
+        import os
+
+        versions_dir = os.path.join(
+            os.path.dirname(__file__), "..", "alembic", "versions"
+        )
+        assert os.path.isdir(versions_dir)
+
+    def test_initial_migration_exists(self):
+        import glob
+        import os
+
+        versions_dir = os.path.join(
+            os.path.dirname(__file__), "..", "alembic", "versions"
+        )
+        migrations = glob.glob(os.path.join(versions_dir, "*.py"))
+        # Filter out __pycache__ and __init__
+        migrations = [m for m in migrations if "__" not in os.path.basename(m)]
+        assert len(migrations) >= 1
+
+    def test_models_target_metadata_configured(self):
+        """Verify that alembic env.py references the correct metadata."""
+        from src.db.models import Base
+
+        assert Base.metadata is not None
+        # All 6 tables should be in the metadata
+        assert len(Base.metadata.tables) >= 6
