@@ -1,6 +1,36 @@
-"""Shared test fixtures."""
+"""Shared test fixtures for database testing."""
 
 import pytest
+import pytest_asyncio
+from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
+from sqlalchemy.orm import sessionmaker
+
+from src.db.models import Base
+
+
+@pytest_asyncio.fixture
+async def async_engine():
+    """Create an async in-memory SQLite engine for testing."""
+    engine = create_async_engine(
+        "sqlite+aiosqlite:///:memory:",
+        echo=False,
+    )
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.create_all)
+    yield engine
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.drop_all)
+    await engine.dispose()
+
+
+@pytest_asyncio.fixture
+async def async_session(async_engine):
+    """Create an async session bound to the test engine."""
+    async_session_factory = sessionmaker(
+        async_engine, class_=AsyncSession, expire_on_commit=False
+    )
+    async with async_session_factory() as session:
+        yield session
 
 
 @pytest.fixture
