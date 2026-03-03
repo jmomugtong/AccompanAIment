@@ -566,3 +566,51 @@ class TestForeignKeyRelationships:
         async_session.add(fb)
         with pytest.raises(IntegrityError):
             await async_session.commit()
+
+
+class TestIndexCreation:
+    """Test that indexes exist on frequently queried columns."""
+
+    def _get_index_names(self, model) -> set[str]:
+        """Get all index names for a model's table."""
+        return {idx.name for idx in model.__table__.indexes}
+
+    def test_songs_has_user_id_index(self):
+        assert "ix_songs_user_id" in self._get_index_names(Song)
+
+    def test_songs_has_uploaded_at_index(self):
+        assert "ix_songs_uploaded_at" in self._get_index_names(Song)
+
+    def test_melodies_has_song_id_index(self):
+        assert "ix_melodies_song_id" in self._get_index_names(Melody)
+
+    def test_generations_has_song_id_index(self):
+        assert "ix_generations_song_id" in self._get_index_names(Generation)
+
+    def test_generations_has_style_index(self):
+        assert "ix_generations_style" in self._get_index_names(Generation)
+
+    def test_user_feedback_has_generation_id_index(self):
+        assert "ix_user_feedback_generation_id" in self._get_index_names(UserFeedback)
+
+    def test_user_feedback_has_user_id_index(self):
+        assert "ix_user_feedback_user_id" in self._get_index_names(UserFeedback)
+
+    def test_user_email_has_unique_constraint(self):
+        col = User.__table__.columns["email"]
+        assert col.unique is True
+
+    def test_style_name_has_unique_constraint(self):
+        col = Style.__table__.columns["style_name"]
+        assert col.unique is True
+
+    @pytest.mark.asyncio
+    async def test_indexes_created_in_database(self, async_engine):
+        """Verify indexes exist in the actual database schema."""
+        async with async_engine.connect() as conn:
+            songs_indexes = await conn.run_sync(
+                lambda sync_conn: inspect(sync_conn).get_indexes("songs")
+            )
+        index_names = {idx["name"] for idx in songs_indexes}
+        assert "ix_songs_user_id" in index_names
+        assert "ix_songs_uploaded_at" in index_names
