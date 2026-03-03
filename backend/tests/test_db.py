@@ -829,3 +829,118 @@ class TestTimestampManagement:
         )
         fetched = result.scalar_one()
         assert fetched.created_at is not None
+
+
+class TestUserIsolation:
+    """Test multi-tenant row-level isolation -- users only see their own data."""
+
+    @pytest.mark.asyncio
+    async def test_user_only_sees_own_songs(self, async_session):
+        from sqlalchemy import select
+
+        user_a = User(user_id="iso_a", email="iso_a@example.com")
+        user_b = User(user_id="iso_b", email="iso_b@example.com")
+        song_a = Song(
+            song_id="iso_sa", user_id="iso_a", filename="a.wav", original_filename="a.mp3"
+        )
+        song_b = Song(
+            song_id="iso_sb", user_id="iso_b", filename="b.wav", original_filename="b.mp3"
+        )
+        async_session.add_all([user_a, user_b, song_a, song_b])
+        await async_session.commit()
+
+        result = await async_session.execute(
+            select(Song).where(Song.user_id == "iso_a")
+        )
+        songs = result.scalars().all()
+        assert len(songs) == 1
+        assert songs[0].song_id == "iso_sa"
+
+    @pytest.mark.asyncio
+    async def test_user_only_sees_own_generations(self, async_session):
+        from sqlalchemy import select
+
+        user_a = User(user_id="iso_c", email="iso_c@example.com")
+        user_b = User(user_id="iso_d", email="iso_d@example.com")
+        song_a = Song(
+            song_id="iso_sc", user_id="iso_c", filename="c.wav", original_filename="c.mp3"
+        )
+        song_b = Song(
+            song_id="iso_sd", user_id="iso_d", filename="d.wav", original_filename="d.mp3"
+        )
+        gen_a = Generation(generation_id="iso_ga", song_id="iso_sc", style="jazz")
+        gen_b = Generation(generation_id="iso_gb", song_id="iso_sd", style="pop")
+        async_session.add_all([user_a, user_b, song_a, song_b, gen_a, gen_b])
+        await async_session.commit()
+
+        result = await async_session.execute(
+            select(Generation)
+            .join(Song)
+            .where(Song.user_id == "iso_c")
+        )
+        gens = result.scalars().all()
+        assert len(gens) == 1
+        assert gens[0].generation_id == "iso_ga"
+
+    @pytest.mark.asyncio
+    async def test_user_only_sees_own_feedback(self, async_session):
+        from sqlalchemy import select
+
+        user_a = User(user_id="iso_e", email="iso_e@example.com")
+        user_b = User(user_id="iso_f", email="iso_f@example.com")
+        song = Song(
+            song_id="iso_se", user_id="iso_e", filename="e.wav", original_filename="e.mp3"
+        )
+        gen = Generation(generation_id="iso_ge", song_id="iso_se", style="jazz")
+        fb_a = UserFeedback(
+            feedback_id="iso_fa", generation_id="iso_ge", user_id="iso_e", rating=5
+        )
+        fb_b = UserFeedback(
+            feedback_id="iso_fb", generation_id="iso_ge", user_id="iso_f", rating=3
+        )
+        async_session.add_all([user_a, user_b, song, gen, fb_a, fb_b])
+        await async_session.commit()
+
+        result = await async_session.execute(
+            select(UserFeedback).where(UserFeedback.user_id == "iso_e")
+        )
+        feedbacks = result.scalars().all()
+        assert len(feedbacks) == 1
+        assert feedbacks[0].feedback_id == "iso_fa"
+
+    @pytest.mark.asyncio
+    async def test_cross_user_song_count_isolation(self, async_session):
+        from sqlalchemy import func, select
+
+        user_a = User(user_id="iso_g", email="iso_g@example.com")
+        user_b = User(user_id="iso_h", email="iso_h@example.com")
+        songs_a = [
+            Song(
+                song_id=f"iso_sg{i}",
+                user_id="iso_g",
+                filename=f"{i}.wav",
+                original_filename=f"{i}.mp3",
+            )
+            for i in range(3)
+        ]
+        songs_b = [
+            Song(
+                song_id=f"iso_sh{i}",
+                user_id="iso_h",
+                filename=f"{i}.wav",
+                original_filename=f"{i}.mp3",
+            )
+            for i in range(5)
+        ]
+        async_session.add_all([user_a, user_b] + songs_a + songs_b)
+        await async_session.commit()
+
+        result_a = await async_session.execute(
+            select(func.count()).select_from(Song).where(Song.user_id == "iso_g")
+        )
+        assert result_a.scalar() == 3
+
+        result_b = await async_session.execute(
+            select(func.count()).select_from(Song).where(Song.user_id == "iso_h")
+        )
+        assert result_b.scalar() == 5
