@@ -226,3 +226,221 @@ class TestColumnTypeValidation:
         assert self._get_column_type(User, "created_at") is DateTime
         assert self._get_column_type(Song, "uploaded_at") is DateTime
         assert self._get_column_type(Song, "deleted_at") is DateTime
+
+
+class TestCRUDOperations:
+    """Test create, read, update, delete for each model."""
+
+    @pytest.mark.asyncio
+    async def test_create_and_read_user(self, async_session):
+        user = User(user_id="u1", email="test@example.com", skill_level="intermediate")
+        async_session.add(user)
+        await async_session.commit()
+
+        from sqlalchemy import select
+
+        result = await async_session.execute(select(User).where(User.user_id == "u1"))
+        fetched = result.scalar_one()
+        assert fetched.email == "test@example.com"
+        assert fetched.skill_level == "intermediate"
+
+    @pytest.mark.asyncio
+    async def test_update_user(self, async_session):
+        user = User(user_id="u2", email="update@example.com")
+        async_session.add(user)
+        await async_session.commit()
+
+        user.skill_level = "advanced"
+        await async_session.commit()
+
+        from sqlalchemy import select
+
+        result = await async_session.execute(select(User).where(User.user_id == "u2"))
+        fetched = result.scalar_one()
+        assert fetched.skill_level == "advanced"
+
+    @pytest.mark.asyncio
+    async def test_delete_user(self, async_session):
+        user = User(user_id="u3", email="delete@example.com")
+        async_session.add(user)
+        await async_session.commit()
+
+        await async_session.delete(user)
+        await async_session.commit()
+
+        from sqlalchemy import select
+
+        result = await async_session.execute(select(User).where(User.user_id == "u3"))
+        assert result.scalar_one_or_none() is None
+
+    @pytest.mark.asyncio
+    async def test_create_and_read_song(self, async_session):
+        user = User(user_id="u4", email="song@example.com")
+        async_session.add(user)
+        await async_session.commit()
+
+        song = Song(
+            song_id="s1",
+            user_id="u4",
+            filename="processed.wav",
+            original_filename="my_song.mp3",
+            duration_seconds=180.5,
+            tempo_bpm=120.0,
+        )
+        async_session.add(song)
+        await async_session.commit()
+
+        from sqlalchemy import select
+
+        result = await async_session.execute(select(Song).where(Song.song_id == "s1"))
+        fetched = result.scalar_one()
+        assert fetched.original_filename == "my_song.mp3"
+        assert fetched.duration_seconds == 180.5
+
+    @pytest.mark.asyncio
+    async def test_create_and_read_melody(self, async_session):
+        user = User(user_id="u5", email="melody@example.com")
+        song = Song(
+            song_id="s2", user_id="u5", filename="f.wav", original_filename="f.mp3"
+        )
+        async_session.add_all([user, song])
+        await async_session.commit()
+
+        melody = Melody(
+            melody_id="m1",
+            song_id="s2",
+            pitch_contour_json='[60, 62, 64]',
+            confidence_json='[0.9, 0.8, 0.7]',
+            timings_json='[0.0, 0.5, 1.0]',
+            duration_seconds=1.5,
+        )
+        async_session.add(melody)
+        await async_session.commit()
+
+        from sqlalchemy import select
+
+        result = await async_session.execute(
+            select(Melody).where(Melody.melody_id == "m1")
+        )
+        fetched = result.scalar_one()
+        assert fetched.duration_seconds == 1.5
+
+    @pytest.mark.asyncio
+    async def test_create_and_read_generation(self, async_session):
+        user = User(user_id="u6", email="gen@example.com")
+        song = Song(
+            song_id="s3", user_id="u6", filename="g.wav", original_filename="g.mp3"
+        )
+        async_session.add_all([user, song])
+        await async_session.commit()
+
+        gen = Generation(
+            generation_id="g1",
+            song_id="s3",
+            style="jazz",
+            midi_path="/data/g1.mid",
+        )
+        async_session.add(gen)
+        await async_session.commit()
+
+        from sqlalchemy import select
+
+        result = await async_session.execute(
+            select(Generation).where(Generation.generation_id == "g1")
+        )
+        fetched = result.scalar_one()
+        assert fetched.style == "jazz"
+
+    @pytest.mark.asyncio
+    async def test_create_and_read_feedback(self, async_session):
+        user = User(user_id="u7", email="fb@example.com")
+        song = Song(
+            song_id="s4", user_id="u7", filename="fb.wav", original_filename="fb.mp3"
+        )
+        gen = Generation(generation_id="g2", song_id="s4", style="pop")
+        async_session.add_all([user, song, gen])
+        await async_session.commit()
+
+        fb = UserFeedback(
+            feedback_id="f1",
+            generation_id="g2",
+            user_id="u7",
+            rating=5,
+            musicality_score=4,
+            style_match_score=5,
+            fit_to_melody_score=4,
+            comment="Sounds great",
+        )
+        async_session.add(fb)
+        await async_session.commit()
+
+        from sqlalchemy import select
+
+        result = await async_session.execute(
+            select(UserFeedback).where(UserFeedback.feedback_id == "f1")
+        )
+        fetched = result.scalar_one()
+        assert fetched.rating == 5
+        assert fetched.comment == "Sounds great"
+
+    @pytest.mark.asyncio
+    async def test_create_and_read_style(self, async_session):
+        style = Style(
+            style_id="st1",
+            style_name="jazz",
+            description="Jazz style with extensions and syncopation",
+            template_name="jazz_template",
+        )
+        async_session.add(style)
+        await async_session.commit()
+
+        from sqlalchemy import select
+
+        result = await async_session.execute(
+            select(Style).where(Style.style_id == "st1")
+        )
+        fetched = result.scalar_one()
+        assert fetched.style_name == "jazz"
+
+    @pytest.mark.asyncio
+    async def test_update_generation(self, async_session):
+        user = User(user_id="u8", email="upgen@example.com")
+        song = Song(
+            song_id="s5", user_id="u8", filename="ug.wav", original_filename="ug.mp3"
+        )
+        gen = Generation(generation_id="g3", song_id="s5", style="pop")
+        async_session.add_all([user, song, gen])
+        await async_session.commit()
+
+        gen.audio_path = "/data/g3.wav"
+        gen.sheet_path = "/data/g3.pdf"
+        await async_session.commit()
+
+        from sqlalchemy import select
+
+        result = await async_session.execute(
+            select(Generation).where(Generation.generation_id == "g3")
+        )
+        fetched = result.scalar_one()
+        assert fetched.audio_path == "/data/g3.wav"
+        assert fetched.sheet_path == "/data/g3.pdf"
+
+    @pytest.mark.asyncio
+    async def test_delete_generation(self, async_session):
+        user = User(user_id="u9", email="delgen@example.com")
+        song = Song(
+            song_id="s6", user_id="u9", filename="dg.wav", original_filename="dg.mp3"
+        )
+        gen = Generation(generation_id="g4", song_id="s6", style="classical")
+        async_session.add_all([user, song, gen])
+        await async_session.commit()
+
+        await async_session.delete(gen)
+        await async_session.commit()
+
+        from sqlalchemy import select
+
+        result = await async_session.execute(
+            select(Generation).where(Generation.generation_id == "g4")
+        )
+        assert result.scalar_one_or_none() is None
