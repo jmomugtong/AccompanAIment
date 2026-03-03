@@ -709,3 +709,123 @@ class TestSoftDeletes:
             select(Song).where(Song.song_id == "sds4")
         )
         assert result.scalar_one_or_none() is not None
+
+
+class TestTimestampManagement:
+    """Test auto-populated created_at and updated_at columns."""
+
+    @pytest.mark.asyncio
+    async def test_user_created_at_auto_set(self, async_session):
+        user = User(user_id="ts1", email="ts1@example.com")
+        async_session.add(user)
+        await async_session.commit()
+
+        from sqlalchemy import select
+
+        result = await async_session.execute(
+            select(User).where(User.user_id == "ts1")
+        )
+        fetched = result.scalar_one()
+        assert fetched.created_at is not None
+
+    @pytest.mark.asyncio
+    async def test_user_updated_at_auto_set(self, async_session):
+        user = User(user_id="ts2", email="ts2@example.com")
+        async_session.add(user)
+        await async_session.commit()
+
+        from sqlalchemy import select
+
+        result = await async_session.execute(
+            select(User).where(User.user_id == "ts2")
+        )
+        fetched = result.scalar_one()
+        assert fetched.updated_at is not None
+
+    @pytest.mark.asyncio
+    async def test_song_uploaded_at_auto_set(self, async_session):
+        user = User(user_id="ts3", email="ts3@example.com")
+        song = Song(
+            song_id="tss1", user_id="ts3", filename="t.wav", original_filename="t.mp3"
+        )
+        async_session.add_all([user, song])
+        await async_session.commit()
+
+        from sqlalchemy import select
+
+        result = await async_session.execute(
+            select(Song).where(Song.song_id == "tss1")
+        )
+        fetched = result.scalar_one()
+        assert fetched.uploaded_at is not None
+
+    @pytest.mark.asyncio
+    async def test_melody_created_at_auto_set(self, async_session):
+        user = User(user_id="ts4", email="ts4@example.com")
+        song = Song(
+            song_id="tss2", user_id="ts4", filename="u.wav", original_filename="u.mp3"
+        )
+        melody = Melody(melody_id="tsm1", song_id="tss2")
+        async_session.add_all([user, song, melody])
+        await async_session.commit()
+
+        from sqlalchemy import select
+
+        result = await async_session.execute(
+            select(Melody).where(Melody.melody_id == "tsm1")
+        )
+        fetched = result.scalar_one()
+        assert fetched.created_at is not None
+
+    @pytest.mark.asyncio
+    async def test_generation_created_at_auto_set(self, async_session):
+        user = User(user_id="ts5", email="ts5@example.com")
+        song = Song(
+            song_id="tss3", user_id="ts5", filename="v.wav", original_filename="v.mp3"
+        )
+        gen = Generation(generation_id="tsg1", song_id="tss3", style="jazz")
+        async_session.add_all([user, song, gen])
+        await async_session.commit()
+
+        from sqlalchemy import select
+
+        result = await async_session.execute(
+            select(Generation).where(Generation.generation_id == "tsg1")
+        )
+        fetched = result.scalar_one()
+        assert fetched.created_at is not None
+
+    @pytest.mark.asyncio
+    async def test_feedback_created_at_auto_set(self, async_session):
+        user = User(user_id="ts6", email="ts6@example.com")
+        song = Song(
+            song_id="tss4", user_id="ts6", filename="w.wav", original_filename="w.mp3"
+        )
+        gen = Generation(generation_id="tsg2", song_id="tss4", style="pop")
+        fb = UserFeedback(
+            feedback_id="tsf1", generation_id="tsg2", user_id="ts6", rating=4
+        )
+        async_session.add_all([user, song, gen, fb])
+        await async_session.commit()
+
+        from sqlalchemy import select
+
+        result = await async_session.execute(
+            select(UserFeedback).where(UserFeedback.feedback_id == "tsf1")
+        )
+        fetched = result.scalar_one()
+        assert fetched.created_at is not None
+
+    @pytest.mark.asyncio
+    async def test_style_created_at_auto_set(self, async_session):
+        style = Style(style_id="tst1", style_name="timestamp_jazz")
+        async_session.add(style)
+        await async_session.commit()
+
+        from sqlalchemy import select
+
+        result = await async_session.execute(
+            select(Style).where(Style.style_id == "tst1")
+        )
+        fetched = result.scalar_one()
+        assert fetched.created_at is not None
