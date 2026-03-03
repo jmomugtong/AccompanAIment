@@ -614,3 +614,98 @@ class TestIndexCreation:
         index_names = {idx["name"] for idx in songs_indexes}
         assert "ix_songs_user_id" in index_names
         assert "ix_songs_uploaded_at" in index_names
+
+
+class TestSoftDeletes:
+    """Test soft delete behavior via deleted_at timestamp."""
+
+    @pytest.mark.asyncio
+    async def test_song_deleted_at_is_null_by_default(self, async_session):
+        user = User(user_id="sd1", email="sd1@example.com")
+        song = Song(
+            song_id="sds1", user_id="sd1", filename="a.wav", original_filename="a.mp3"
+        )
+        async_session.add_all([user, song])
+        await async_session.commit()
+
+        from sqlalchemy import select
+
+        result = await async_session.execute(
+            select(Song).where(Song.song_id == "sds1")
+        )
+        fetched = result.scalar_one()
+        assert fetched.deleted_at is None
+
+    @pytest.mark.asyncio
+    async def test_soft_delete_sets_deleted_at(self, async_session):
+        from datetime import datetime, timezone
+
+        user = User(user_id="sd2", email="sd2@example.com")
+        song = Song(
+            song_id="sds2", user_id="sd2", filename="b.wav", original_filename="b.mp3"
+        )
+        async_session.add_all([user, song])
+        await async_session.commit()
+
+        now = datetime.now(timezone.utc)
+        song.deleted_at = now
+        await async_session.commit()
+
+        from sqlalchemy import select
+
+        result = await async_session.execute(
+            select(Song).where(Song.song_id == "sds2")
+        )
+        fetched = result.scalar_one()
+        assert fetched.deleted_at is not None
+
+    @pytest.mark.asyncio
+    async def test_filter_excludes_soft_deleted_songs(self, async_session):
+        from datetime import datetime, timezone
+
+        user = User(user_id="sd3", email="sd3@example.com")
+        song_active = Song(
+            song_id="sds3a", user_id="sd3", filename="c.wav", original_filename="c.mp3"
+        )
+        song_deleted = Song(
+            song_id="sds3b",
+            user_id="sd3",
+            filename="d.wav",
+            original_filename="d.mp3",
+            deleted_at=datetime.now(timezone.utc),
+        )
+        async_session.add_all([user, song_active, song_deleted])
+        await async_session.commit()
+
+        from sqlalchemy import select
+
+        result = await async_session.execute(
+            select(Song).where(Song.deleted_at.is_(None))
+        )
+        active_songs = result.scalars().all()
+        song_ids = {s.song_id for s in active_songs}
+        assert "sds3a" in song_ids
+        assert "sds3b" not in song_ids
+
+    @pytest.mark.asyncio
+    async def test_soft_delete_preserves_record_in_db(self, async_session):
+        """Soft-deleted records still exist, just have deleted_at set."""
+        from datetime import datetime, timezone
+
+        user = User(user_id="sd4", email="sd4@example.com")
+        song = Song(
+            song_id="sds4", user_id="sd4", filename="e.wav", original_filename="e.mp3"
+        )
+        async_session.add_all([user, song])
+        await async_session.commit()
+
+        song.deleted_at = datetime.now(timezone.utc)
+        await async_session.commit()
+
+        from sqlalchemy import select
+
+        # Record still exists (no filter)
+        result = await async_session.execute(
+            select(Song).where(Song.song_id == "sds4")
+        )
+        assert result.scalar_one_or_none() is not None
