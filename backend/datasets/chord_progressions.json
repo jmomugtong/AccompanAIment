@@ -1,0 +1,142 @@
+[
+  {
+    "name": "I-V-vi-IV",
+    "genre": "pop",
+    "chords": ["I", "V", "vi", "IV"],
+    "time_signature": "4/4",
+    "description": "The most widely used pop progression. Found in thousands of hit songs from the 1990s onward. Provides a satisfying, uplifting harmonic cycle."
+  },
+  {
+    "name": "I-IV-V-I",
+    "genre": "pop",
+    "chords": ["I", "IV", "V", "I"],
+    "time_signature": "4/4",
+    "description": "Fundamental three-chord progression. The backbone of rock, country, and folk music. Simple and universally recognizable."
+  },
+  {
+    "name": "ii-V-I",
+    "genre": "jazz",
+    "chords": ["ii7", "V7", "Imaj7"],
+    "time_signature": "4/4",
+    "description": "The essential jazz cadence. Nearly every jazz standard contains this progression. The strongest harmonic resolution in tonal music."
+  },
+  {
+    "name": "I-vi-IV-V (Doo-Wop)",
+    "genre": "pop",
+    "chords": ["I", "vi", "IV", "V"],
+    "time_signature": "4/4",
+    "description": "Classic 1950s doo-wop changes. Also known as the '50s progression. Used in 'Stand by Me', 'Earth Angel', and countless others."
+  },
+  {
+    "name": "12-Bar Blues",
+    "genre": "blues",
+    "chords": ["I7", "I7", "I7", "I7", "IV7", "IV7", "I7", "I7", "V7", "IV7", "I7", "V7"],
+    "time_signature": "4/4",
+    "description": "The standard 12-bar blues form. Foundation of blues, early rock and roll, and boogie-woogie. Each chord symbol represents one bar."
+  },
+  {
+    "name": "Andalusian Cadence",
+    "genre": "classical",
+    "chords": ["i", "VII", "VI", "V"],
+    "time_signature": "4/4",
+    "description": "Descending minor cadence with Spanish and flamenco origins. Common in classical guitar, film scores, and Mediterranean folk music."
+  },
+  {
+    "name": "ii-V-I-vi (Jazz Turnaround)",
+    "genre": "jazz",
+    "chords": ["ii7", "V7", "Imaj7", "vi7"],
+    "time_signature": "4/4",
+    "description": "Standard jazz turnaround used at the end of chorus sections. Creates a seamless loop back to the ii chord for the next chorus."
+  },
+  {
+    "name": "I-vi-ii-V (Rhythm Changes Bridge)",
+    "genre": "jazz",
+    "chords": ["Imaj7", "vi7", "ii7", "V7"],
+    "time_signature": "4/4",
+    "description": "Circle-of-fifths progression from Gershwin's 'I Got Rhythm'. Basis for hundreds of jazz contrafacts and bebop compositions."
+  },
+  {
+    "name": "i-iv-v-i (Minor Blues)",
+    "genre": "blues",
+    "chords": ["i7", "iv7", "v7", "i7"],
+    "time_signature": "4/4",
+    "description": "Minor key blues progression. Dark, moody character used in minor blues, RnB ballads, and soul music."
+  },
+  {
+    "name": "vi-IV-I-V (Sensitive Female)",
+    "genre": "pop",
+    "chords": ["vi", "IV", "I", "V"],
+    "time_signature": "4/4",
+    "description": "Rotation of the I-V-vi-IV starting on the minor chord. Creates a more melancholic, introspective feel. Common in 2000s pop and indie rock."
+  },
+  {
+    "name": "I-IVmaj7-iii7-vi7 (Neo-Soul)",
+    "genre": "rnb",
+    "chords": ["Imaj7", "IVmaj7", "iii7", "vi7"],
+    "time_signature": "4/4",
+    "description": "Lush neo-soul progression with extended chords. Smooth, warm harmonic movement favored by artists like Erykah Badu and D'Angelo."
+  },
+  {
+    "name": "i-VII-VI-VII (Aeolian Vamp)",
+    "genre": "rnb",
+    "chords": ["i", "VII", "VI", "VII"],
+    "time_signature": "4/4",
+    "description": "Natural minor oscillation between i and VII with VI as a passing chord. Common in modern RnB, hip-hop beats, and trap-soul."
+  },
+  {
+    "name": "Pachelbel Canon",
+    "genre": "classical",
+    "chords": ["I", "V", "vi", "iii", "IV", "I", "IV", "V"],
+    "time_signature": "4/4",
+    "description": "The famous Pachelbel Canon chord sequence. Baroque origin but adapted extensively in pop, rock, and wedding music."
+  },
+  {
+    "name": "i-VII-VI-V (Harmonic Minor Descent)",
+    "genre": "classical",
+    "chords": ["i", "VII", "VI", "V"],
+    "time_signature": "4/4",
+    "description": "Descending bass line through the natural minor scale with a major V chord. Dramatic and passionate, common in classical and film music."
+  },
+  {
+    "name": "I-bVII-IV-I (Mixolydian Vamp)",
+    "genre": "pop",
+    "chords": ["I", "bVII", "IV", "I"],
+    "time_signature": "4/4",
+    "description": "Mixolydian mode progression with the flat seventh. Rock and roots feel. Used by The Beatles, Tom Petty, and many classic rock artists."
+  },
+  {
+    "name": "iii-vi-ii-V (Circle of Fifths)",
+    "genre": "jazz",
+    "chords": ["iii7", "vi7", "ii7", "V7"],
+    "time_signature": "4/4",
+    "description": "Extended circle-of-fifths movement. Creates strong forward harmonic motion. Fundamental to bebop and post-bop jazz harmony."
+  },
+  {
+    "name": "I-V-vi-iii-IV-I-ii-V (Extended Canon)",
+    "genre": "pop",
+    "chords": ["I", "V", "vi", "iii", "IV", "I", "ii", "V"],
+    "time_signature": "4/4",
+    "description": "Extended 8-bar progression combining the Pachelbel Canon with a ii-V resolution. Smooth, flowing harmonic cycle for ballads."
+  },
+  {
+    "name": "i-bVI-bIII-bVII (Epic Minor)",
+    "genre": "pop",
+    "chords": ["i", "bVI", "bIII", "bVII"],
+    "time_signature": "4/4",
+    "description": "Dramatic minor key progression using natural minor chords. Common in film scores, power ballads, and modern epic pop."
+  },
+  {
+    "name": "Imaj7-ii9-iii7-IVmaj7 (Smooth Jazz)",
+    "genre": "jazz",
+    "chords": ["Imaj7", "ii9", "iii7", "IVmaj7"],
+    "time_signature": "4/4",
+    "description": "Stepwise ascending progression with lush extensions. Smooth, sophisticated sound used in smooth jazz and contemporary arrangements."
+  },
+  {
+    "name": "I-IV-I-V (Gospel Vamp)",
+    "genre": "rnb",
+    "chords": ["I", "IV", "I", "V"],
+    "time_signature": "4/4",
+    "description": "Simple gospel and soul vamp. Energetic and uplifting. Foundation of gospel piano, Motown, and classic soul music."
+  }
+]
