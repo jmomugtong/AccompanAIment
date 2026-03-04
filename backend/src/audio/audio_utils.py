@@ -43,7 +43,10 @@ def validate_file_size(file_path: str, max_bytes: int = MAX_FILE_SIZE_BYTES) -> 
     Returns:
         True if within limit, False otherwise.
     """
-    raise NotImplementedError
+    try:
+        return os.path.getsize(file_path) <= max_bytes
+    except OSError:
+        return False
 
 
 def validate_audio_duration(
