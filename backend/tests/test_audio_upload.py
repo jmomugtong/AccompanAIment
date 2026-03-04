@@ -8,8 +8,10 @@ import pytest
 import soundfile as sf
 
 from src.audio.audio_utils import (
+    get_audio_metadata,
     normalize_volume,
     resample_audio,
+    validate_audio_corruption,
     validate_audio_duration,
     validate_file_format,
     validate_file_size,
@@ -192,3 +194,69 @@ class TestResamplingAndMonoConversion:
         audio = np.sin(2 * np.pi * 440 * np.linspace(0, 1, sr))
         resampled = resample_audio(audio, orig_sr=sr, target_sr=22050)
         assert resampled.ndim == 1
+
+
+class TestAudioCorruptionDetection:
+    """Test detection of corrupted audio files."""
+
+    def test_valid_wav_passes(self):
+        path = os.path.join(FIXTURES_DIR, "test_mono.wav")
+        assert validate_audio_corruption(path) is True
+
+    def test_valid_stereo_passes(self):
+        path = os.path.join(FIXTURES_DIR, "test_stereo.wav")
+        assert validate_audio_corruption(path) is True
+
+    def test_nonexistent_file_fails(self):
+        assert validate_audio_corruption("/nonexistent/file.wav") is False
+
+    def test_corrupted_file_fails(self):
+        """A file with random bytes should fail."""
+        with tempfile.NamedTemporaryFile(suffix=".wav", delete=False) as f:
+            f.write(b"this is not audio data at all")
+            f.flush()
+            path = f.name
+        try:
+            assert validate_audio_corruption(path) is False
+        finally:
+            os.unlink(path)
+
+    def test_empty_file_fails(self):
+        with tempfile.NamedTemporaryFile(suffix=".wav", delete=False) as f:
+            path = f.name
+        try:
+            assert validate_audio_corruption(path) is False
+        finally:
+            os.unlink(path)
+
+
+class TestMetadataExtraction:
+    """Test audio metadata extraction."""
+
+    def test_mono_wav_metadata(self):
+        path = os.path.join(FIXTURES_DIR, "test_mono.wav")
+        meta = get_audio_metadata(path)
+        assert meta["sample_rate"] == 44100
+        assert meta["channels"] == 1
+        assert abs(meta["duration"] - 2.0) < 0.1
+
+    def test_stereo_wav_metadata(self):
+        path = os.path.join(FIXTURES_DIR, "test_stereo.wav")
+        meta = get_audio_metadata(path)
+        assert meta["sample_rate"] == 44100
+        assert meta["channels"] == 2
+        assert abs(meta["duration"] - 2.0) < 0.1
+
+    def test_high_sr_wav_metadata(self):
+        path = os.path.join(FIXTURES_DIR, "test_high_sr.wav")
+        meta = get_audio_metadata(path)
+        assert meta["sample_rate"] == 48000
+
+    def test_metadata_includes_format(self):
+        path = os.path.join(FIXTURES_DIR, "test_mono.wav")
+        meta = get_audio_metadata(path)
+        assert "format" in meta
+
+    def test_nonexistent_file_returns_none(self):
+        meta = get_audio_metadata("/nonexistent/file.wav")
+        assert meta is None

@@ -115,10 +115,14 @@ def validate_audio_corruption(file_path: str) -> bool:
     Returns:
         True if the file is valid, False if corrupted.
     """
-    raise NotImplementedError
+    try:
+        info = sf.info(file_path)
+        return info.frames > 0
+    except Exception:
+        return False
 
 
-def get_audio_metadata(file_path: str) -> dict[str, Any]:
+def get_audio_metadata(file_path: str) -> dict[str, Any] | None:
     """Extract metadata from an audio file.
 
     Args:
@@ -126,5 +130,15 @@ def get_audio_metadata(file_path: str) -> dict[str, Any]:
 
     Returns:
         Dict with keys: sample_rate, channels, duration, format.
+        None if the file cannot be read.
     """
-    raise NotImplementedError
+    try:
+        info = sf.info(file_path)
+        return {
+            "sample_rate": info.samplerate,
+            "channels": info.channels,
+            "duration": info.duration,
+            "format": info.format,
+        }
+    except Exception:
+        return None
