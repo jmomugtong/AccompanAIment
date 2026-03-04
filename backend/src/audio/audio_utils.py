@@ -101,7 +101,9 @@ def resample_audio(
     Returns:
         Resampled audio samples.
     """
-    raise NotImplementedError
+    if orig_sr == target_sr:
+        return audio
+    return librosa.resample(audio, orig_sr=orig_sr, target_sr=target_sr)
 
 
 def validate_audio_corruption(file_path: str) -> bool:

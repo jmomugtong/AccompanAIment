@@ -9,6 +9,7 @@ import soundfile as sf
 
 from src.audio.audio_utils import (
     normalize_volume,
+    resample_audio,
     validate_audio_duration,
     validate_file_format,
     validate_file_size,
@@ -144,3 +145,50 @@ class TestVolumeNormalization:
         audio = np.zeros(sr)
         normalized = normalize_volume(audio, sr, target_db=-3.0)
         assert np.max(np.abs(normalized)) == 0.0
+
+
+class TestResamplingAndMonoConversion:
+    """Test resampling to 22.05kHz and stereo-to-mono conversion."""
+
+    def test_resample_from_44100_to_22050(self):
+        sr = 44100
+        duration = 1.0
+        audio = np.sin(2 * np.pi * 440 * np.linspace(0, duration, int(sr * duration)))
+        resampled = resample_audio(audio, orig_sr=sr, target_sr=22050)
+        expected_length = int(22050 * duration)
+        assert abs(len(resampled) - expected_length) <= 1
+
+    def test_resample_from_48000_to_22050(self):
+        sr = 48000
+        duration = 1.0
+        audio = np.sin(2 * np.pi * 440 * np.linspace(0, duration, int(sr * duration)))
+        resampled = resample_audio(audio, orig_sr=sr, target_sr=22050)
+        expected_length = int(22050 * duration)
+        assert abs(len(resampled) - expected_length) <= 1
+
+    def test_resample_same_rate_returns_same_length(self):
+        sr = 22050
+        audio = np.sin(2 * np.pi * 440 * np.linspace(0, 1, sr))
+        resampled = resample_audio(audio, orig_sr=sr, target_sr=sr)
+        assert len(resampled) == len(audio)
+
+    def test_stereo_to_mono_via_librosa(self):
+        """Loading a stereo file with librosa mono=True should return 1D."""
+        path = os.path.join(FIXTURES_DIR, "test_stereo.wav")
+        import librosa
+
+        audio, sr = librosa.load(path, sr=None, mono=True)
+        assert audio.ndim == 1
+
+    def test_mono_file_stays_mono(self):
+        path = os.path.join(FIXTURES_DIR, "test_mono.wav")
+        import librosa
+
+        audio, sr = librosa.load(path, sr=None, mono=True)
+        assert audio.ndim == 1
+
+    def test_resample_preserves_1d(self):
+        sr = 44100
+        audio = np.sin(2 * np.pi * 440 * np.linspace(0, 1, sr))
+        resampled = resample_audio(audio, orig_sr=sr, target_sr=22050)
+        assert resampled.ndim == 1
