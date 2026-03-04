@@ -8,6 +8,7 @@ import pytest
 import soundfile as sf
 
 from src.audio.audio_utils import (
+    normalize_volume,
     validate_audio_duration,
     validate_file_format,
     validate_file_size,
@@ -104,3 +105,42 @@ class TestAudioDurationValidation:
         """Silent audio is still valid audio."""
         path = os.path.join(FIXTURES_DIR, "test_silent.wav")
         assert validate_audio_duration(path) is True
+
+
+class TestVolumeNormalization:
+    """Test volume normalization to -3dB peak."""
+
+    def test_normalize_increases_quiet_audio(self):
+        """Quiet audio (0.1 amplitude) should be boosted."""
+        sr = 22050
+        audio = 0.1 * np.sin(2 * np.pi * 440 * np.linspace(0, 1, sr))
+        normalized = normalize_volume(audio, sr, target_db=-3.0)
+        assert np.max(np.abs(normalized)) > np.max(np.abs(audio))
+
+    def test_normalize_reduces_loud_audio(self):
+        """Full-scale audio should be reduced to -3dB."""
+        sr = 22050
+        audio = np.sin(2 * np.pi * 440 * np.linspace(0, 1, sr))
+        normalized = normalize_volume(audio, sr, target_db=-3.0)
+        assert np.max(np.abs(normalized)) < np.max(np.abs(audio))
+
+    def test_normalize_peak_matches_target(self):
+        """Peak should be close to -3dB (approx 0.7079)."""
+        sr = 22050
+        audio = 0.5 * np.sin(2 * np.pi * 440 * np.linspace(0, 1, sr))
+        normalized = normalize_volume(audio, sr, target_db=-3.0)
+        target_linear = 10 ** (-3.0 / 20.0)  # ~0.7079
+        assert abs(np.max(np.abs(normalized)) - target_linear) < 0.01
+
+    def test_normalize_preserves_shape(self):
+        sr = 22050
+        audio = 0.3 * np.sin(2 * np.pi * 440 * np.linspace(0, 1, sr))
+        normalized = normalize_volume(audio, sr, target_db=-3.0)
+        assert normalized.shape == audio.shape
+
+    def test_normalize_silent_audio_returns_silent(self):
+        """All-zero audio should remain all-zero."""
+        sr = 22050
+        audio = np.zeros(sr)
+        normalized = normalize_volume(audio, sr, target_db=-3.0)
+        assert np.max(np.abs(normalized)) == 0.0

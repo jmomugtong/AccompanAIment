@@ -81,7 +81,11 @@ def normalize_volume(
     Returns:
         Normalized audio samples.
     """
-    raise NotImplementedError
+    peak = np.max(np.abs(audio))
+    if peak == 0:
+        return audio
+    target_linear = 10 ** (target_db / 20.0)
+    return audio * (target_linear / peak)
 
 
 def resample_audio(
