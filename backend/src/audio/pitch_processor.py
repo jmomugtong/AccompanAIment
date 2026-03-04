@@ -63,3 +63,47 @@ class PitchProcessor:
             Array of MIDI note numbers.
         """
         return np.array([self.hz_to_midi(f) for f in frequencies])
+
+    def segment_phrases(
+        self, timings: np.ndarray, gap_threshold: float = 0.5
+    ) -> list[np.ndarray]:
+        """Segment timings into phrases based on silence gaps.
+
+        Args:
+            timings: Array of frame timestamps (seconds).
+            gap_threshold: Minimum gap (seconds) to split phrases.
+
+        Returns:
+            List of arrays, each containing timing indices for one phrase.
+        """
+        if len(timings) == 0:
+            return []
+
+        phrases: list[list[int]] = [[0]]
+        for i in range(1, len(timings)):
+            if timings[i] - timings[i - 1] > gap_threshold:
+                phrases.append([i])
+            else:
+                phrases[-1].append(i)
+
+        return [np.array(p) for p in phrases]
+
+    def compute_confidence_stats(self, confidence: np.ndarray) -> dict[str, float]:
+        """Compute summary statistics for confidence scores.
+
+        Args:
+            confidence: Array of confidence scores.
+
+        Returns:
+            Dict with mean, min, max, and voiced_ratio.
+        """
+        if len(confidence) == 0:
+            return {"mean": 0.0, "min": 0.0, "max": 0.0, "voiced_ratio": 0.0}
+
+        voiced_mask = self.get_voiced_mask(confidence)
+        return {
+            "mean": float(np.mean(confidence)),
+            "min": float(np.min(confidence)),
+            "max": float(np.max(confidence)),
+            "voiced_ratio": float(np.sum(voiced_mask) / len(confidence)),
+        }

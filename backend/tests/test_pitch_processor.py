@@ -103,3 +103,97 @@ class TestMIDIQuantization:
         midi_notes = proc.quantize_to_midi(freqs)
         # zero-frequency entries should become 0
         assert midi_notes[1] == 0
+
+
+class TestPhraseSegmentation:
+    """Test phrase boundary detection based on silence gaps."""
+
+    def test_single_phrase_no_gaps(self):
+        proc = PitchProcessor()
+        timings = np.linspace(0, 2.0, 50)
+        phrases = proc.segment_phrases(timings, gap_threshold=0.5)
+        assert len(phrases) == 1
+
+    def test_two_phrases_with_gap(self):
+        proc = PitchProcessor()
+        # Two groups separated by a >0.5s gap
+        t1 = np.linspace(0, 1.0, 25)
+        t2 = np.linspace(2.0, 3.0, 25)
+        timings = np.concatenate([t1, t2])
+        phrases = proc.segment_phrases(timings, gap_threshold=0.5)
+        assert len(phrases) == 2
+
+    def test_three_phrases_with_gaps(self):
+        proc = PitchProcessor()
+        t1 = np.array([0.0, 0.1, 0.2])
+        t2 = np.array([1.0, 1.1, 1.2])
+        t3 = np.array([3.0, 3.1, 3.2])
+        timings = np.concatenate([t1, t2, t3])
+        phrases = proc.segment_phrases(timings, gap_threshold=0.5)
+        assert len(phrases) == 3
+
+    def test_empty_timings(self):
+        proc = PitchProcessor()
+        phrases = proc.segment_phrases(np.array([]), gap_threshold=0.5)
+        assert len(phrases) == 0
+
+    def test_phrase_contains_correct_indices(self):
+        proc = PitchProcessor()
+        t1 = np.array([0.0, 0.1])
+        t2 = np.array([1.0, 1.1, 1.2])
+        timings = np.concatenate([t1, t2])
+        phrases = proc.segment_phrases(timings, gap_threshold=0.5)
+        assert len(phrases[0]) == 2
+        assert len(phrases[1]) == 3
+
+
+class TestEdgeCases:
+    """Test edge cases: silent audio, single frame."""
+
+    def test_single_frame(self):
+        proc = PitchProcessor()
+        freqs = np.array([440.0])
+        smoothed = proc.smooth_pitch(freqs, kernel_size=1)
+        assert len(smoothed) == 1
+
+    def test_all_zero_frequencies(self):
+        proc = PitchProcessor()
+        freqs = np.zeros(10)
+        midi = proc.quantize_to_midi(freqs)
+        assert all(n == 0 for n in midi)
+
+    def test_very_high_frequency(self):
+        proc = PitchProcessor()
+        assert proc.hz_to_midi(4186.0) == 108  # C8
+
+    def test_very_low_frequency(self):
+        proc = PitchProcessor()
+        assert proc.hz_to_midi(27.5) == 21  # A0
+
+
+class TestConfidenceScoreCalculations:
+    """Test confidence score statistics."""
+
+    def test_mean_confidence(self):
+        proc = PitchProcessor()
+        conf = np.array([0.9, 0.8, 0.7, 0.6, 0.5])
+        stats = proc.compute_confidence_stats(conf)
+        assert abs(stats["mean"] - 0.7) < 0.01
+
+    def test_min_max_confidence(self):
+        proc = PitchProcessor()
+        conf = np.array([0.3, 0.5, 0.9])
+        stats = proc.compute_confidence_stats(conf)
+        assert abs(stats["min"] - 0.3) < 0.01
+        assert abs(stats["max"] - 0.9) < 0.01
+
+    def test_empty_confidence(self):
+        proc = PitchProcessor()
+        stats = proc.compute_confidence_stats(np.array([]))
+        assert stats["mean"] == 0.0
+
+    def test_voiced_ratio(self):
+        proc = PitchProcessor(confidence_threshold=0.5)
+        conf = np.array([0.9, 0.1, 0.8, 0.3])
+        stats = proc.compute_confidence_stats(conf)
+        assert abs(stats["voiced_ratio"] - 0.5) < 0.01
