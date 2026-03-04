@@ -61,7 +61,11 @@ def validate_audio_duration(
     Returns:
         True if within limit, False otherwise.
     """
-    raise NotImplementedError
+    try:
+        duration = librosa.get_duration(path=file_path)
+        return duration <= max_seconds
+    except Exception:
+        return False
 
 
 def normalize_volume(

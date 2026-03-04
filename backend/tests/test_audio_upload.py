@@ -7,7 +7,11 @@ import numpy as np
 import pytest
 import soundfile as sf
 
-from src.audio.audio_utils import validate_file_format, validate_file_size
+from src.audio.audio_utils import (
+    validate_audio_duration,
+    validate_file_format,
+    validate_file_size,
+)
 
 FIXTURES_DIR = os.path.join(os.path.dirname(__file__), "fixtures")
 
@@ -74,3 +78,29 @@ class TestFileSizeValidation:
         path = os.path.join(FIXTURES_DIR, "test_mono.wav")
         file_size = os.path.getsize(path)
         assert validate_file_size(path, max_bytes=file_size) is True
+
+
+class TestAudioDurationValidation:
+    """Test audio duration validation (max 10 minutes)."""
+
+    def test_short_audio_accepted(self):
+        """2-second fixture should pass default 10-minute limit."""
+        path = os.path.join(FIXTURES_DIR, "test_mono.wav")
+        assert validate_audio_duration(path) is True
+
+    def test_audio_over_custom_limit_rejected(self):
+        """Reject audio over a 1-second custom limit."""
+        path = os.path.join(FIXTURES_DIR, "test_mono.wav")
+        assert validate_audio_duration(path, max_seconds=1.0) is False
+
+    def test_audio_under_custom_limit_accepted(self):
+        path = os.path.join(FIXTURES_DIR, "test_mono.wav")
+        assert validate_audio_duration(path, max_seconds=10.0) is True
+
+    def test_nonexistent_file_rejected(self):
+        assert validate_audio_duration("/nonexistent/file.wav") is False
+
+    def test_silent_audio_accepted(self):
+        """Silent audio is still valid audio."""
+        path = os.path.join(FIXTURES_DIR, "test_silent.wav")
+        assert validate_audio_duration(path) is True
