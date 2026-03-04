@@ -1,0 +1,2052 @@
+[
+  {
+    "id": 1,
+    "song_title": "Midnight Rain",
+    "style": "jazz",
+    "key": "C",
+    "tempo": 80,
+    "time_signature": "6/8",
+    "chord_progression": "Dm | Am | Bb | F | C",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 4.5,
+        "style_match": 3.5,
+        "fit_to_melody": 3.5
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 3.0,
+        "style_match": 3.0,
+        "fit_to_melody": 3.0
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 4.0,
+        "style_match": 3.5,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 4.0,
+        "style_match": 3.5,
+        "fit_to_melody": 3.5
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 3.5,
+        "style_match": 4.0,
+        "fit_to_melody": 4.0
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "song_title": "Golden Horizon",
+    "style": "soulful",
+    "key": "A",
+    "tempo": 90,
+    "time_signature": "3/4",
+    "chord_progression": "Dm | Am | Bb | F | C",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 3.0,
+        "style_match": 4.5,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 4.0,
+        "style_match": 5.0,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 4.0,
+        "style_match": 5.0,
+        "fit_to_melody": 3.5
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 4.0,
+        "style_match": 5.0,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 4.5,
+        "style_match": 5.0,
+        "fit_to_melody": 4.5
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "song_title": "Velvet Dreams",
+    "style": "rnb",
+    "key": "E",
+    "tempo": 72,
+    "time_signature": "3/4",
+    "chord_progression": "Am7 | Dm7 | G7 | Cmaj7",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 4.5,
+        "style_match": 5.0,
+        "fit_to_melody": 3.5
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 4.5,
+        "style_match": 5.0,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 5.0,
+        "style_match": 4.0,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 5.0,
+        "style_match": 4.5,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 4.5,
+        "style_match": 5.0,
+        "fit_to_melody": 4.5
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "song_title": "Crimson Serenade",
+    "style": "pop",
+    "key": "G",
+    "tempo": 100,
+    "time_signature": "4/4",
+    "chord_progression": "Bb | F | Gm | Eb",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 4.0,
+        "style_match": 5.0,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 5.0,
+        "style_match": 4.0,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 5.0,
+        "style_match": 5.0,
+        "fit_to_melody": 3.5
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 4.0,
+        "style_match": 5.0,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 5.0,
+        "style_match": 4.5,
+        "fit_to_melody": 4.0
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "song_title": "Silver Lullaby",
+    "style": "classical",
+    "key": "E",
+    "tempo": 120,
+    "time_signature": "4/4",
+    "chord_progression": "Am | F | C | G",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 3.5,
+        "style_match": 4.0,
+        "fit_to_melody": 5.0
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 4.5,
+        "style_match": 4.5,
+        "fit_to_melody": 5.0
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 4.0,
+        "style_match": 4.0,
+        "fit_to_melody": 5.0
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 5.0,
+        "style_match": 5.0,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 5.0,
+        "style_match": 5.0,
+        "fit_to_melody": 5.0
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "song_title": "Amber Whisper",
+    "style": "jazz",
+    "key": "D",
+    "tempo": 120,
+    "time_signature": "3/4",
+    "chord_progression": "Ab | Eb | Fm | Db",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 4.0,
+        "style_match": 4.0,
+        "fit_to_melody": 5.0
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 3.5,
+        "style_match": 2.5,
+        "fit_to_melody": 5.0
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 4.5,
+        "style_match": 3.5,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 3.5,
+        "style_match": 3.0,
+        "fit_to_melody": 5.0
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 4.5,
+        "style_match": 4.0,
+        "fit_to_melody": 4.5
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "song_title": "Sapphire Echo",
+    "style": "soulful",
+    "key": "C",
+    "tempo": 140,
+    "time_signature": "4/4",
+    "chord_progression": "Em | C | G | D",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 4.0,
+        "style_match": 5.0,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 4.0,
+        "style_match": 4.5,
+        "fit_to_melody": 3.0
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 5.0,
+        "style_match": 5.0,
+        "fit_to_melody": 3.5
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 5.0,
+        "style_match": 5.0,
+        "fit_to_melody": 3.5
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 5.0,
+        "style_match": 4.5,
+        "fit_to_melody": 3.5
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "song_title": "Electric Dawn",
+    "style": "rnb",
+    "key": "F",
+    "tempo": 100,
+    "time_signature": "3/4",
+    "chord_progression": "Em | C | G | D",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 3.5,
+        "style_match": 4.0,
+        "fit_to_melody": 3.5
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 3.5,
+        "style_match": 3.5,
+        "fit_to_melody": 3.0
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 4.5,
+        "style_match": 3.5,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 4.5,
+        "style_match": 3.5,
+        "fit_to_melody": 3.0
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 4.5,
+        "style_match": 3.5,
+        "fit_to_melody": 3.0
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "song_title": "Twilight River",
+    "style": "pop",
+    "key": "E",
+    "tempo": 140,
+    "time_signature": "3/4",
+    "chord_progression": "Ab | Eb | Fm | Db",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 3.5,
+        "style_match": 3.5,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 4.0,
+        "style_match": 4.0,
+        "fit_to_melody": 3.5
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 3.5,
+        "style_match": 3.0,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 3.5,
+        "style_match": 3.0,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 3.5,
+        "style_match": 3.0,
+        "fit_to_melody": 3.5
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "song_title": "Ivory Solitude",
+    "style": "classical",
+    "key": "Bb",
+    "tempo": 80,
+    "time_signature": "6/8",
+    "chord_progression": "Am7 | Dm7 | G7 | Cmaj7",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 4.5,
+        "style_match": 5.0,
+        "fit_to_melody": 5.0
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 3.0,
+        "style_match": 5.0,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 3.5,
+        "style_match": 4.5,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 4.5,
+        "style_match": 4.5,
+        "fit_to_melody": 5.0
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 3.5,
+        "style_match": 5.0,
+        "fit_to_melody": 5.0
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "song_title": "Scarlet Journey",
+    "style": "jazz",
+    "key": "Eb",
+    "tempo": 140,
+    "time_signature": "4/4",
+    "chord_progression": "Dm | Am | Bb | F | C",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 3.0,
+        "style_match": 3.0,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 4.0,
+        "style_match": 4.0,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 3.0,
+        "style_match": 3.5,
+        "fit_to_melody": 5.0
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 3.0,
+        "style_match": 2.5,
+        "fit_to_melody": 5.0
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 3.5,
+        "style_match": 4.0,
+        "fit_to_melody": 4.5
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "song_title": "Emerald Sunrise",
+    "style": "soulful",
+    "key": "D",
+    "tempo": 72,
+    "time_signature": "3/4",
+    "chord_progression": "Ebmaj7 | Cm7 | Abmaj7 | Bb7",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 4.5,
+        "style_match": 3.5,
+        "fit_to_melody": 3.5
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 4.0,
+        "style_match": 4.0,
+        "fit_to_melody": 3.5
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 5.0,
+        "style_match": 4.5,
+        "fit_to_melody": 3.0
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 4.5,
+        "style_match": 4.0,
+        "fit_to_melody": 3.0
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 4.5,
+        "style_match": 4.0,
+        "fit_to_melody": 3.0
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "song_title": "Autumn Cascade",
+    "style": "rnb",
+    "key": "D",
+    "tempo": 120,
+    "time_signature": "4/4",
+    "chord_progression": "Em | C | G | D",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 3.5,
+        "style_match": 5.0,
+        "fit_to_melody": 5.0
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 4.0,
+        "style_match": 4.5,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 4.5,
+        "style_match": 3.5,
+        "fit_to_melody": 5.0
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 3.5,
+        "style_match": 4.5,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 3.5,
+        "style_match": 3.5,
+        "fit_to_melody": 4.0
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "song_title": "Crystal Bloom",
+    "style": "pop",
+    "key": "E",
+    "tempo": 120,
+    "time_signature": "6/8",
+    "chord_progression": "Dm | Am | Bb | F | C",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 3.5,
+        "style_match": 4.0,
+        "fit_to_melody": 5.0
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 3.5,
+        "style_match": 3.5,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 5.0,
+        "style_match": 3.0,
+        "fit_to_melody": 5.0
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 4.5,
+        "style_match": 4.0,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 5.0,
+        "style_match": 4.0,
+        "fit_to_melody": 4.5
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "song_title": "Neon Reverie",
+    "style": "classical",
+    "key": "G",
+    "tempo": 72,
+    "time_signature": "6/8",
+    "chord_progression": "Am | F | C | G",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 4.5,
+        "style_match": 4.0,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 4.5,
+        "style_match": 3.0,
+        "fit_to_melody": 3.5
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 3.0,
+        "style_match": 4.0,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 3.5,
+        "style_match": 3.5,
+        "fit_to_melody": 3.5
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 4.5,
+        "style_match": 4.0,
+        "fit_to_melody": 4.5
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "song_title": "Gentle Melody",
+    "style": "jazz",
+    "key": "A",
+    "tempo": 90,
+    "time_signature": "4/4",
+    "chord_progression": "Fmaj7 | Em7 | Dm7 | Cmaj7",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 5.0,
+        "style_match": 4.5,
+        "fit_to_melody": 5.0
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 4.0,
+        "style_match": 4.5,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 5.0,
+        "style_match": 4.5,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 5.0,
+        "style_match": 4.0,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 5.0,
+        "style_match": 3.5,
+        "fit_to_melody": 4.0
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "song_title": "Stormy Waltz",
+    "style": "soulful",
+    "key": "A",
+    "tempo": 100,
+    "time_signature": "3/4",
+    "chord_progression": "Dm | Am | Bb | F | C",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 5.0,
+        "style_match": 5.0,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 5.0,
+        "style_match": 5.0,
+        "fit_to_melody": 3.0
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 5.0,
+        "style_match": 4.5,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 4.5,
+        "style_match": 4.5,
+        "fit_to_melody": 3.5
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 5.0,
+        "style_match": 4.5,
+        "fit_to_melody": 4.0
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "song_title": "Radiant Sonata",
+    "style": "rnb",
+    "key": "A",
+    "tempo": 80,
+    "time_signature": "6/8",
+    "chord_progression": "Bb | F | Gm | Eb",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 4.5,
+        "style_match": 4.5,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 4.5,
+        "style_match": 5.0,
+        "fit_to_melody": 3.0
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 3.0,
+        "style_match": 5.0,
+        "fit_to_melody": 3.0
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 3.5,
+        "style_match": 5.0,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 3.5,
+        "style_match": 4.0,
+        "fit_to_melody": 3.5
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "song_title": "Silent Nocturne",
+    "style": "pop",
+    "key": "F",
+    "tempo": 130,
+    "time_signature": "6/8",
+    "chord_progression": "Fmaj7 | Em7 | Dm7 | Cmaj7",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 4.0,
+        "style_match": 4.0,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 3.5,
+        "style_match": 5.0,
+        "fit_to_melody": 3.5
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 3.5,
+        "style_match": 5.0,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 3.5,
+        "style_match": 4.5,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 4.0,
+        "style_match": 5.0,
+        "fit_to_melody": 4.5
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "song_title": "Burning Ballad",
+    "style": "classical",
+    "key": "D",
+    "tempo": 90,
+    "time_signature": "3/4",
+    "chord_progression": "Am | F | C | G",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 5.0,
+        "style_match": 4.0,
+        "fit_to_melody": 3.0
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 5.0,
+        "style_match": 4.0,
+        "fit_to_melody": 3.0
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 5.0,
+        "style_match": 4.5,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 4.5,
+        "style_match": 5.0,
+        "fit_to_melody": 3.5
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 5.0,
+        "style_match": 4.0,
+        "fit_to_melody": 3.5
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "song_title": "Frozen Tide",
+    "style": "jazz",
+    "key": "C",
+    "tempo": 90,
+    "time_signature": "4/4",
+    "chord_progression": "Ab | Eb | Fm | Db",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 4.0,
+        "style_match": 5.0,
+        "fit_to_melody": 5.0
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 3.0,
+        "style_match": 4.0,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 4.0,
+        "style_match": 5.0,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 4.0,
+        "style_match": 4.5,
+        "fit_to_melody": 5.0
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 4.5,
+        "style_match": 4.5,
+        "fit_to_melody": 5.0
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "song_title": "Distant Breeze",
+    "style": "soulful",
+    "key": "Eb",
+    "tempo": 140,
+    "time_signature": "6/8",
+    "chord_progression": "G | Em | C | D",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 4.0,
+        "style_match": 5.0,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 4.0,
+        "style_match": 4.5,
+        "fit_to_melody": 5.0
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 4.0,
+        "style_match": 4.5,
+        "fit_to_melody": 5.0
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 3.5,
+        "style_match": 4.0,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 3.5,
+        "style_match": 4.0,
+        "fit_to_melody": 4.5
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "song_title": "Tender Shadow",
+    "style": "rnb",
+    "key": "Ab",
+    "tempo": 120,
+    "time_signature": "3/4",
+    "chord_progression": "Ab | Eb | Fm | Db",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 4.0,
+        "style_match": 5.0,
+        "fit_to_melody": 3.5
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 4.0,
+        "style_match": 5.0,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 4.5,
+        "style_match": 4.5,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 4.0,
+        "style_match": 5.0,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 4.0,
+        "style_match": 5.0,
+        "fit_to_melody": 4.5
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "song_title": "Wild Flame",
+    "style": "pop",
+    "key": "E",
+    "tempo": 140,
+    "time_signature": "3/4",
+    "chord_progression": "Ab | Eb | Fm | Db",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 4.5,
+        "style_match": 4.5,
+        "fit_to_melody": 5.0
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 5.0,
+        "style_match": 4.5,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 5.0,
+        "style_match": 4.0,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 3.5,
+        "style_match": 4.0,
+        "fit_to_melody": 5.0
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 3.5,
+        "style_match": 3.5,
+        "fit_to_melody": 4.0
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "song_title": "Peaceful Hymn",
+    "style": "classical",
+    "key": "G",
+    "tempo": 140,
+    "time_signature": "3/4",
+    "chord_progression": "Ab | Eb | Fm | Db",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 4.5,
+        "style_match": 5.0,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 3.0,
+        "style_match": 5.0,
+        "fit_to_melody": 3.5
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 3.0,
+        "style_match": 5.0,
+        "fit_to_melody": 3.5
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 3.0,
+        "style_match": 4.5,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 4.0,
+        "style_match": 4.5,
+        "fit_to_melody": 4.0
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "song_title": "Midnight Rain",
+    "style": "jazz",
+    "key": "E",
+    "tempo": 80,
+    "time_signature": "3/4",
+    "chord_progression": "Dm | Am | Bb | F | C",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 5.0,
+        "style_match": 3.0,
+        "fit_to_melody": 5.0
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 5.0,
+        "style_match": 3.0,
+        "fit_to_melody": 3.5
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 4.5,
+        "style_match": 4.0,
+        "fit_to_melody": 5.0
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 4.5,
+        "style_match": 4.0,
+        "fit_to_melody": 3.5
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 5.0,
+        "style_match": 4.0,
+        "fit_to_melody": 3.5
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "song_title": "Golden Horizon",
+    "style": "soulful",
+    "key": "D",
+    "tempo": 110,
+    "time_signature": "6/8",
+    "chord_progression": "Cmaj7 | Dm7 | G7 | Cmaj7",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 4.0,
+        "style_match": 4.0,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 4.5,
+        "style_match": 3.5,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 4.0,
+        "style_match": 4.5,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 4.0,
+        "style_match": 4.5,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 3.5,
+        "style_match": 4.5,
+        "fit_to_melody": 4.0
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "song_title": "Velvet Dreams",
+    "style": "rnb",
+    "key": "Bb",
+    "tempo": 140,
+    "time_signature": "3/4",
+    "chord_progression": "Ebmaj7 | Cm7 | Abmaj7 | Bb7",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 3.0,
+        "style_match": 5.0,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 4.0,
+        "style_match": 5.0,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 3.0,
+        "style_match": 5.0,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 3.5,
+        "style_match": 5.0,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 4.5,
+        "style_match": 5.0,
+        "fit_to_melody": 4.5
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "song_title": "Crimson Serenade",
+    "style": "pop",
+    "key": "Ab",
+    "tempo": 72,
+    "time_signature": "4/4",
+    "chord_progression": "Am7 | Dm7 | G7 | Cmaj7",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 3.5,
+        "style_match": 4.0,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 4.0,
+        "style_match": 3.0,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 3.5,
+        "style_match": 3.5,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 3.5,
+        "style_match": 4.0,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 4.5,
+        "style_match": 4.0,
+        "fit_to_melody": 4.0
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "song_title": "Silver Lullaby",
+    "style": "classical",
+    "key": "F",
+    "tempo": 140,
+    "time_signature": "3/4",
+    "chord_progression": "Dm | Am | Bb | F | C",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 4.0,
+        "style_match": 5.0,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 3.5,
+        "style_match": 5.0,
+        "fit_to_melody": 3.5
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 4.0,
+        "style_match": 5.0,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 4.5,
+        "style_match": 5.0,
+        "fit_to_melody": 3.5
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 3.5,
+        "style_match": 4.0,
+        "fit_to_melody": 4.0
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "song_title": "Amber Whisper",
+    "style": "jazz",
+    "key": "F",
+    "tempo": 90,
+    "time_signature": "4/4",
+    "chord_progression": "Cmaj7 | Dm7 | G7 | Cmaj7",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 5.0,
+        "style_match": 4.5,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 4.5,
+        "style_match": 4.5,
+        "fit_to_melody": 3.5
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 4.0,
+        "style_match": 4.0,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 4.5,
+        "style_match": 5.0,
+        "fit_to_melody": 3.5
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 3.5,
+        "style_match": 4.5,
+        "fit_to_melody": 3.0
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "song_title": "Sapphire Echo",
+    "style": "soulful",
+    "key": "F",
+    "tempo": 90,
+    "time_signature": "4/4",
+    "chord_progression": "Bb | F | Gm | Eb",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 4.0,
+        "style_match": 4.0,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 3.5,
+        "style_match": 4.5,
+        "fit_to_melody": 5.0
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 4.5,
+        "style_match": 4.5,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 4.0,
+        "style_match": 5.0,
+        "fit_to_melody": 5.0
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 3.0,
+        "style_match": 4.0,
+        "fit_to_melody": 4.5
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "song_title": "Electric Dawn",
+    "style": "rnb",
+    "key": "E",
+    "tempo": 90,
+    "time_signature": "4/4",
+    "chord_progression": "Am | F | C | G",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 4.0,
+        "style_match": 3.0,
+        "fit_to_melody": 3.5
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 4.0,
+        "style_match": 3.5,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 4.0,
+        "style_match": 4.0,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 4.0,
+        "style_match": 3.5,
+        "fit_to_melody": 5.0
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 3.5,
+        "style_match": 3.5,
+        "fit_to_melody": 4.5
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "song_title": "Twilight River",
+    "style": "pop",
+    "key": "Eb",
+    "tempo": 110,
+    "time_signature": "4/4",
+    "chord_progression": "Cmaj7 | Dm7 | G7 | Cmaj7",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 4.0,
+        "style_match": 3.5,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 4.0,
+        "style_match": 4.0,
+        "fit_to_melody": 5.0
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 3.5,
+        "style_match": 4.0,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 3.0,
+        "style_match": 3.5,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 3.5,
+        "style_match": 3.0,
+        "fit_to_melody": 5.0
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "song_title": "Ivory Solitude",
+    "style": "classical",
+    "key": "F",
+    "tempo": 72,
+    "time_signature": "6/8",
+    "chord_progression": "Cmaj7 | Dm7 | G7 | Cmaj7",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 4.5,
+        "style_match": 3.0,
+        "fit_to_melody": 5.0
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 4.5,
+        "style_match": 4.0,
+        "fit_to_melody": 5.0
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 4.5,
+        "style_match": 3.5,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 4.0,
+        "style_match": 3.0,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 4.5,
+        "style_match": 4.0,
+        "fit_to_melody": 4.0
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "song_title": "Scarlet Journey",
+    "style": "jazz",
+    "key": "Bb",
+    "tempo": 72,
+    "time_signature": "4/4",
+    "chord_progression": "Em | C | G | D",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 4.5,
+        "style_match": 4.0,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 4.5,
+        "style_match": 3.5,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 4.0,
+        "style_match": 3.5,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 4.0,
+        "style_match": 3.0,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 3.5,
+        "style_match": 3.0,
+        "fit_to_melody": 5.0
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "song_title": "Emerald Sunrise",
+    "style": "soulful",
+    "key": "D",
+    "tempo": 140,
+    "time_signature": "4/4",
+    "chord_progression": "Ebmaj7 | Cm7 | Abmaj7 | Bb7",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 4.0,
+        "style_match": 4.5,
+        "fit_to_melody": 3.5
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 5.0,
+        "style_match": 4.0,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 5.0,
+        "style_match": 4.0,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 4.5,
+        "style_match": 5.0,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 4.5,
+        "style_match": 4.5,
+        "fit_to_melody": 4.0
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "song_title": "Autumn Cascade",
+    "style": "rnb",
+    "key": "A",
+    "tempo": 90,
+    "time_signature": "4/4",
+    "chord_progression": "Ebmaj7 | Cm7 | Abmaj7 | Bb7",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 4.0,
+        "style_match": 5.0,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 5.0,
+        "style_match": 5.0,
+        "fit_to_melody": 5.0
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 4.0,
+        "style_match": 4.5,
+        "fit_to_melody": 5.0
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 5.0,
+        "style_match": 5.0,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 4.5,
+        "style_match": 4.5,
+        "fit_to_melody": 5.0
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "song_title": "Crystal Bloom",
+    "style": "pop",
+    "key": "Bb",
+    "tempo": 130,
+    "time_signature": "3/4",
+    "chord_progression": "Bb | F | Gm | Eb",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 5.0,
+        "style_match": 3.5,
+        "fit_to_melody": 3.5
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 5.0,
+        "style_match": 4.5,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 5.0,
+        "style_match": 4.0,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 4.5,
+        "style_match": 4.5,
+        "fit_to_melody": 3.5
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 5.0,
+        "style_match": 3.5,
+        "fit_to_melody": 3.5
+      }
+    ]
+  },
+  {
+    "id": 40,
+    "song_title": "Neon Reverie",
+    "style": "classical",
+    "key": "D",
+    "tempo": 140,
+    "time_signature": "6/8",
+    "chord_progression": "G | Em | C | D",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 4.5,
+        "style_match": 3.0,
+        "fit_to_melody": 5.0
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 3.0,
+        "style_match": 3.5,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 3.0,
+        "style_match": 3.5,
+        "fit_to_melody": 5.0
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 3.5,
+        "style_match": 4.5,
+        "fit_to_melody": 5.0
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 4.0,
+        "style_match": 3.5,
+        "fit_to_melody": 5.0
+      }
+    ]
+  },
+  {
+    "id": 41,
+    "song_title": "Gentle Melody",
+    "style": "jazz",
+    "key": "E",
+    "tempo": 80,
+    "time_signature": "6/8",
+    "chord_progression": "Dm | Am | Bb | F | C",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 4.5,
+        "style_match": 5.0,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 5.0,
+        "style_match": 5.0,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 4.5,
+        "style_match": 5.0,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 5.0,
+        "style_match": 4.0,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 5.0,
+        "style_match": 5.0,
+        "fit_to_melody": 3.5
+      }
+    ]
+  },
+  {
+    "id": 42,
+    "song_title": "Stormy Waltz",
+    "style": "soulful",
+    "key": "A",
+    "tempo": 80,
+    "time_signature": "6/8",
+    "chord_progression": "Bb | F | Gm | Eb",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 4.5,
+        "style_match": 4.0,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 5.0,
+        "style_match": 4.0,
+        "fit_to_melody": 3.5
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 4.5,
+        "style_match": 3.5,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 5.0,
+        "style_match": 4.0,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 4.5,
+        "style_match": 4.0,
+        "fit_to_melody": 3.5
+      }
+    ]
+  },
+  {
+    "id": 43,
+    "song_title": "Radiant Sonata",
+    "style": "rnb",
+    "key": "Bb",
+    "tempo": 130,
+    "time_signature": "4/4",
+    "chord_progression": "Bb | F | Gm | Eb",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 4.5,
+        "style_match": 3.0,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 4.0,
+        "style_match": 3.0,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 4.5,
+        "style_match": 4.5,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 4.5,
+        "style_match": 4.5,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 4.5,
+        "style_match": 3.5,
+        "fit_to_melody": 4.5
+      }
+    ]
+  },
+  {
+    "id": 44,
+    "song_title": "Silent Nocturne",
+    "style": "pop",
+    "key": "E",
+    "tempo": 100,
+    "time_signature": "6/8",
+    "chord_progression": "Dm | Am | Bb | F | C",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 5.0,
+        "style_match": 4.5,
+        "fit_to_melody": 5.0
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 5.0,
+        "style_match": 4.0,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 4.5,
+        "style_match": 5.0,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 4.0,
+        "style_match": 5.0,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 4.0,
+        "style_match": 4.5,
+        "fit_to_melody": 5.0
+      }
+    ]
+  },
+  {
+    "id": 45,
+    "song_title": "Burning Ballad",
+    "style": "classical",
+    "key": "Eb",
+    "tempo": 110,
+    "time_signature": "3/4",
+    "chord_progression": "G | Em | C | D",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 5.0,
+        "style_match": 4.0,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 5.0,
+        "style_match": 3.5,
+        "fit_to_melody": 5.0
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 5.0,
+        "style_match": 3.5,
+        "fit_to_melody": 5.0
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 5.0,
+        "style_match": 3.0,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 4.5,
+        "style_match": 3.0,
+        "fit_to_melody": 4.5
+      }
+    ]
+  },
+  {
+    "id": 46,
+    "song_title": "Frozen Tide",
+    "style": "jazz",
+    "key": "A",
+    "tempo": 110,
+    "time_signature": "6/8",
+    "chord_progression": "Em | C | G | D",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 4.5,
+        "style_match": 4.0,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 3.0,
+        "style_match": 3.0,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 4.5,
+        "style_match": 3.5,
+        "fit_to_melody": 3.5
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 3.0,
+        "style_match": 4.5,
+        "fit_to_melody": 3.0
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 3.5,
+        "style_match": 3.0,
+        "fit_to_melody": 4.0
+      }
+    ]
+  },
+  {
+    "id": 47,
+    "song_title": "Distant Breeze",
+    "style": "soulful",
+    "key": "A",
+    "tempo": 90,
+    "time_signature": "3/4",
+    "chord_progression": "Em | C | G | D",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 4.5,
+        "style_match": 5.0,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 4.5,
+        "style_match": 4.0,
+        "fit_to_melody": 5.0
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 4.5,
+        "style_match": 5.0,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 4.5,
+        "style_match": 4.5,
+        "fit_to_melody": 5.0
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 5.0,
+        "style_match": 4.0,
+        "fit_to_melody": 5.0
+      }
+    ]
+  },
+  {
+    "id": 48,
+    "song_title": "Tender Shadow",
+    "style": "rnb",
+    "key": "C",
+    "tempo": 120,
+    "time_signature": "3/4",
+    "chord_progression": "Dm | Am | Bb | F | C",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 3.5,
+        "style_match": 4.0,
+        "fit_to_melody": 5.0
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 4.0,
+        "style_match": 2.5,
+        "fit_to_melody": 5.0
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 3.5,
+        "style_match": 3.0,
+        "fit_to_melody": 5.0
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 3.0,
+        "style_match": 4.0,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 3.5,
+        "style_match": 4.0,
+        "fit_to_melody": 4.5
+      }
+    ]
+  },
+  {
+    "id": 49,
+    "song_title": "Wild Flame",
+    "style": "pop",
+    "key": "C",
+    "tempo": 90,
+    "time_signature": "3/4",
+    "chord_progression": "Fmaj7 | Em7 | Dm7 | Cmaj7",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 4.5,
+        "style_match": 5.0,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 5.0,
+        "style_match": 4.5,
+        "fit_to_melody": 5.0
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 4.0,
+        "style_match": 4.0,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 5.0,
+        "style_match": 3.5,
+        "fit_to_melody": 4.0
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 5.0,
+        "style_match": 4.0,
+        "fit_to_melody": 5.0
+      }
+    ]
+  },
+  {
+    "id": 50,
+    "song_title": "Peaceful Hymn",
+    "style": "classical",
+    "key": "Ab",
+    "tempo": 140,
+    "time_signature": "4/4",
+    "chord_progression": "Ebmaj7 | Cm7 | Abmaj7 | Bb7",
+    "ratings": [
+      {
+        "rater": "Dr. Sarah Chen",
+        "musicality": 3.5,
+        "style_match": 4.5,
+        "fit_to_melody": 5.0
+      },
+      {
+        "rater": "Prof. James Okafor",
+        "musicality": 3.0,
+        "style_match": 4.5,
+        "fit_to_melody": 4.5
+      },
+      {
+        "rater": "Maria Gonzalez",
+        "musicality": 4.0,
+        "style_match": 4.5,
+        "fit_to_melody": 5.0
+      },
+      {
+        "rater": "David Kim",
+        "musicality": 3.0,
+        "style_match": 4.0,
+        "fit_to_melody": 5.0
+      },
+      {
+        "rater": "Elena Petrova",
+        "musicality": 3.0,
+        "style_match": 4.5,
+        "fit_to_melody": 5.0
+      }
+    ]
+  }
+]
